@@ -27,15 +27,28 @@
     <main>
 
       <form>
-      <input type="text" placeholder="ADD RANDOM NO" id="text1">
-      <input type="text" placeholder="ADD RANDOM NO" id="text2">
-      <input type="text" placeholder="ADD RANDOM NO" id="text3">
-      <input type="text" placeholder="ADD RANDOM NO" id="text4">
+      <label>first name:</label> <input type="text" id="name">
+      <label>last name:</label> <input type="text" id="sirname">
+      <label>gender</label> <input type="radio" name="gender" id="male"><label>male</label>
+                            <input type="radio" name="gender" id="female"><label>female</label>
+      <label>address:</label> <input type="text" id="address">
 
-      <button id="submit" title="Submit" >submit</button>
+      <input type="checkbox" id="checkbox"> <label>terms and conditions</label>
+
+      <button id="submit" title="Submit">submit</button>
+      <button id="cancel" title="cancel">cancel</button>
       </form>
 
-      <ul id="show"></ul>
+      <div class="display">
+        <ul>
+          <li>name</li>
+          <li>last name</li>
+          <li>gender</li>
+          <li>address</li>
+          <li>edit</li>
+          <li>delete</li>
+        </ul>
+      </div>
 
     </main>
     <!--main section end-->
