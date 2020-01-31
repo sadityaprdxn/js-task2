@@ -11,6 +11,7 @@
   <link rel="shortcut icon" href="favicon.ico" />
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" media="screen" href="assets/css/style.css" >
 
@@ -27,15 +28,41 @@
     <main>
 
       <form>
-      <input type="text" placeholder="ADD RANDOM NO" id="text1">
-      <input type="text" placeholder="ADD RANDOM NO" id="text2">
-      <input type="text" placeholder="ADD RANDOM NO" id="text3">
-      <input type="text" placeholder="ADD RANDOM NO" id="text4">
+      <div>
+        <label>first name:</label> <input type="text" id="name">
+      </div>
 
-      <button id="submit" title="Submit" >submit</button>
+      <div>
+      <label>last name:</label> <input type="text" id="sirname">
+      </div>
+
+      <div>
+      <label>gender:</label> <input type="radio" name="gender" id="male"><label>male</label>
+                            <input type="radio" name="gender" id="female"><label>female</label>
+      </div>
+
+      <div>
+      <label>address:</label> <input type="text" id="address">
+      </div>
+
+      <div>
+      <input type="checkbox" id="checkbox"> <label>terms and conditions</label>
+      </div>
+
+      <button id="submit" title="Submit">submit</button>
+      <button id="cancel" title="cancel">cancel</button>
       </form>
 
-      <ul id="show"></ul>
+      <div class="display">
+        <ul>
+          <li>name</li>
+          <li>last name</li>
+          <li>gender</li>
+          <li>address</li>
+          <li>edit</li>
+          <li>delete</li>
+        </ul>
+      </div>
 
     </main>
     <!--main section end-->

@@ -84,7 +84,7 @@ sub { bottom: -.25em; }
 /*for all*/
 body {
   box-sizing: border-box;
-  font-family: sans-serif;
+  font-family: 'Montserrat', sans-serif;
 }
 
 a { 
@@ -119,9 +119,106 @@ li {
 /*=================================
   main styling starts here
 =================================*/
+main{
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+          flex-direction: column;
+  height: 100vh;
+  -webkit-box-pack: center;
+          justify-content: center; 
+}
 
+form label{
+  text-transform: capitalize;
+  font-size: 20px;
+}
 
+form{
+  width: 50%;
+  box-sizing: border-box;
+  padding: 30px 50px;
+  border: 1px solid black;
+  text-align: center;
+  margin-bottom: 20px;
+}
 
+form input{
+  width: 75%;
+}
+
+form div{
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+          justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+form div:nth-child(5),
+form div:nth-child(3){
+  display: block;
+  margin: 20px 0;
+  text-align: left;
+}
+
+form div:nth-child(5) input,
+form div:nth-child(3) input{
+  width: auto;
+  height: auto;
+}
+
+form div:nth-child(3) label:first-child{
+  margin-right: 10%;
+}
+
+input[type="radio"]{
+  font-size: 20px;
+}
+
+input{
+  height: 7vh;
+  box-sizing: border-box;
+  padding-left: 10px;
+  border-radius: 5px;
+  outline: none;
+  border-style: none;
+  border: 1px solid rgba(0,0,0,0.5);
+}
+
+form div:nth-child(4) input{
+  height: 25vh;
+}
+
+form button{
+  background-color: rgba(255,255,255,1);
+  border-style: none;
+  padding: 5px 20px;
+  border: 1px solid rgba(0,0,0,1);
+  text-transform: capitalize;
+}
+
+.display{
+  border-radius: 20px;
+  margin-bottom: 20px;
+}
+
+.display ul:first-child{
+  color: rgba(255,255,255,1);
+  background-color: rgba(0,0,0,0.8);
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+ul li{
+  padding: 10px 30px;
+  text-transform: capitalize;
+}
 /*=================================
   main styling ends here
 =================================*/
