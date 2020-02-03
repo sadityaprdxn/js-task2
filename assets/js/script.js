@@ -4,16 +4,20 @@
 var randomArray = [];
 
 document.querySelector("#submit").addEventListener("click",submit);
+document.querySelector("#cancel").addEventListener("click",cancel);
 
 
-function submit(e){
-    e.preventDefault();
+function submit(p){
+    p.preventDefault();
     var gdData = null;
 
     var genderData = document.querySelector('input[name = "gender"]:checked');
     if(genderData != null){  
-    var gdData = genderData.value;
+    gdData = genderData.value;
     }
+
+    var checkbox = null,
+        checkbox = document.querySelector("#checkbox:checked");
     
 
     var data = {
@@ -23,7 +27,7 @@ function submit(e){
         address : document.querySelector("#address").value,
     }
 
-    if(data.name == "" || data.sirname == "" || data.gender == null || data.address == ""){
+    if(data.name == "" || data.sirname == "" || data.gender == null || data.address == "" || checkbox == null){
         alert("PLEASE FILL THE ENTIRE FORM")
     }
     else{
@@ -39,45 +43,50 @@ function submit(e){
 }
 
 
+function cancel(p){
+    p.preventDefault();
+    document.querySelector("form").reset();
+}
+
+
 
 function show() {
     var ulNode = document.createElement("ul");
     
-
     for (var specs in randomArray[randomArray.length-1]){
-            var liNode = document.createElement("li");
+        var liNode = document.createElement("li");
 
-            liNode.textContent = (randomArray[randomArray.length-1][specs]);
-            ulNode.appendChild(liNode);
+        liNode.textContent = (randomArray[randomArray.length-1][specs]);
+        ulNode.appendChild(liNode);
 
     }
 
          
-        // for adding edit button
-        var liNodeEdit = document.createElement("li");
-        var aNodeEdit = document.createElement("a");
+    // for adding edit button
+    var liNodeEdit = document.createElement("li");
+    var aNodeEdit = document.createElement("a");
 
-        aNodeEdit.setAttribute("href", "#Fixme");
-        aNodeEdit.setAttribute("id", "edit"); 
-        aNodeEdit.textContent = "EDIT";
-        
-        liNodeEdit.appendChild(aNodeEdit);
-        ulNode.appendChild(liNodeEdit);
+    aNodeEdit.setAttribute("href", "#Fixme");
+    aNodeEdit.setAttribute("id", "edit"); 
+    aNodeEdit.textContent = "Edit";
+    
+    liNodeEdit.appendChild(aNodeEdit);
+    ulNode.appendChild(liNodeEdit);
 
-        aNodeEdit.addEventListener("click",edit);
+    aNodeEdit.addEventListener("click",edit);
 
-        // for adding delete button
-        var liNodeDelete = document.createElement("li");
-        var aNodeDelete = document.createElement("a");
+    // for adding delete button
+    var liNodeDelete = document.createElement("li");
+    var aNodeDelete = document.createElement("a");
 
-        aNodeDelete.setAttribute("href", "#Fixme");
-        aNodeDelete.setAttribute("id", "delete");
-        aNodeDelete.textContent = "DELETE";
-        
-        liNodeDelete.appendChild(aNodeDelete);
-        ulNode.appendChild(liNodeDelete);
+    aNodeDelete.setAttribute("href", "#Fixme");
+    aNodeDelete.setAttribute("id", "delete");
+    aNodeDelete.textContent = "Delete";
+    
+    liNodeDelete.appendChild(aNodeDelete);
+    ulNode.appendChild(liNodeDelete);
 
-        aNodeDelete.addEventListener("click",del);
+    aNodeDelete.addEventListener("click",del);
 
 
     var someNode = document.querySelector('.display');
@@ -89,9 +98,6 @@ function show() {
 
 function edit(){
 
-
-debugger;
-
 var items = document.querySelectorAll(".display ul"),
     tab = [];
 
@@ -99,9 +105,10 @@ var items = document.querySelectorAll(".display ul"),
         tab.push(items[i]);
     }
 
+
     for(var i = 0; i < items.length; i++){
         items[i].onclick = function(){
-            var   index = tab.indexOf(this);
+            var index = tab.indexOf(this);
 
             var selectedData = [];
                 for (var specs in randomArray[index-1]){        
@@ -117,13 +124,35 @@ var items = document.querySelectorAll(".display ul"),
             else{
                 document.querySelector("#female").checked = true;
             }
-        }
-        }
-    
 
-    
+            randomArray.splice(index-1 , 1);
+            console.log(randomArray);
+
+            var ulRemove = document.querySelector(".display");
+            ulRemove.removeChild(ulRemove.childNodes[index+2]);
+
+        }
+    }  
 }
 
 function del(){
 
+var items = document.querySelectorAll(".display ul"),
+    tab = [];
+
+    for(var i = 0; i < items.length; i++){
+        tab.push(items[i]);
+    }
+
+    for(var i = 0; i < items.length; i++){
+        items[i].onclick = function(){
+            var index = tab.indexOf(this);
+
+            randomArray.splice(index-1 , 1);
+            console.log(randomArray);
+
+            var ulRemove = document.querySelector(".display");
+            ulRemove.removeChild(ulRemove.childNodes[index+2]);
+        }
+    }
 }
