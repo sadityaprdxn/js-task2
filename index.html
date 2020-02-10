@@ -1,6 +1,5 @@
 <!doctype html>
 
-<!-- If multi-language site, reconsider usage of html lang declaration here. -->
 <html lang="en"> 
 
 <head>
@@ -38,16 +37,17 @@
       </div>
 
       <div>
-      <label>gender:</label> <input type="radio" name="gender" id="male" value="Male"><label name="gender">male</label>
-                            <input type="radio" name="gender" id="female" value="Female"><label name="gender">female</label>
+      <label>gender:</label> 
+      <input type="radio" name="gender" id="male" value="Male"><label for="male">male</label>
+      <input type="radio" name="gender" id="female" value="Female"><label for="female">female</label>
       </div>
 
       <div>
-      <label>address:</label> <textarea type="text" id="address"></textarea>
+      <label>address:</label> <textarea id="address"></textarea>
       </div>
 
       <div>
-      <input type="checkbox" id="checkbox"> <label>terms and conditions</label>
+      <input type="checkbox" id="checkbox"> <label for="checkbox">terms and conditions</label>
       </div>
 
       <button id="submit" title="Submit">submit</button>
@@ -77,7 +77,6 @@
   </div>
   <!--container end-->
 
-<!-- <script src="js/vendors/jquery-1.8.3.min.js"></script> -->
 <script src="assets/js/script.js"></script>
 </body>
 </html>
